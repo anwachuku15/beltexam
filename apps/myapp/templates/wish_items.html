@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .links {
+            margin-left: 600px;
+        }
+        
+    </style>
+    <title>{{item.name}}</title>
+</head>
+<body>
+    <p class="links"><a href="/dashboard">Home</a> | <a href="/logout">Logout</a></p>
+    <h1>{{ item.name }}</h1>
+    <p>Users who added this product/item under their wish list:</p>
+    {% for i in wishlisted %}
+        <p>{{i.name}}</p>
+    {% endfor %}
+</body>
+</html>

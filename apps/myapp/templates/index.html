@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Login/Registration</title>
+        <style>
+            form {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .register {
+                margin-left: 200px;
+            }
+
+            .login {
+                margin-left: 156px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        <form class="" action="/register" method='POST'>
+            {% csrf_token %}
+            <fieldset>
+                <legend>Register</legend>
+                <p>Name: <input type="text" name="name" placeholder="Name"></p>
+                <p>Username: <input type="text" name="username" placeholder="Username"></p>
+                <p>Password: <input type="password" name="password" placeholder="Password"></p>
+                <p>*Password should be at least 8 characters</p>
+                <p>Confirm PW: <input type="password" name="confirm" placeholder="Confirm PW"></p>
+                <p>Date Hired: <input type="date" name="datehired" placeholder="Date Hired"></p>
+                <input type="submit" name="" value="Register" class="register">
+            </fieldset>
+        </form>
+
+
+        <form action="/login" method='POST'>
+            {% csrf_token %}
+            <fieldset>
+                <legend>Login</legend>
+                <p>Username: <input type="text" name="username" placeholder="Username"></p>
+                <p>Password: <input type="password" name="password" placeholder="Password"></p>
+                <input type="submit" name="" value="Login" class='login'>
+            </fieldset>
+        {% if messages %}
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        
+        </form>
+    </body>
+</html>
